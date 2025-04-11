@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://clx6ynqhq4wll"]
+
+[ext_resource type="Texture2D" uid="uid://bjiap67nlvb2k" path="res://assets/background.png" id="1_oabld"]
+
+[node name="Background" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_top = 113.0
+offset_right = 8313.0
+offset_bottom = 513.0
+texture = ExtResource("1_oabld")
+stretch_mode = 1

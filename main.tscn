@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://b20psjugvsqw7"]
+
+[ext_resource type="PackedScene" uid="uid://clx6ynqhq4wll" path="res://background.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cjnceppnlq2gs" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://e251x7suue46" path="res://obstacle.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dmenpcs7yvg2w" path="res://player.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bjf40n3sbtv5s" path="res://hud.tscn" id="5_lquwl"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_h2yge")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(10, 324)
+
+[node name="Background" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Obstacle" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(899, 302)
+
+[node name="Obstacle2" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(1496, 205)
+
+[node name="Obstacle3" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(1907, 422)
+
+[node name="Obstacle4" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(2579, 415)
+
+[node name="Obstacle5" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(3107, 205)
+
+[node name="Obstacle6" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(3635, 196)
+
+[node name="Obstacle7" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(4200, 437)
+
+[node name="Obstacle8" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(4210, 194)
+
+[node name="Obstacle9" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(4828, 196)
+
+[node name="Obstacle10" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(5575, 422)
+
+[node name="Obstacle11" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(5070, 302)
+
+[node name="Player" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="HUD" parent="." instance=ExtResource("5_lquwl")]
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
